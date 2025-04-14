@@ -1,0 +1,82 @@
+.geist-mono-regular {
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.geist-mono-bold {
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+.geist-mono-semibold {
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+.geist-mono-extrabold {
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+.geist-mono-black {
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+#navbar{
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    justify-content: space-between;
+    color: white;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#logo{
+    font-size: 28px;
+}
+#main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+#sub{
+    font-size: 18px;
+    margin-top: 0;
+    width: 40vw;
+    text-align: center;
+}
+#box{
+    min-width: 50vw;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-style: dotted;
+    border-radius: 20px;
+}
+#upload{
+  width: 8rem;
+  height: 4rem;
+  background-color: grey;
+  color: white;
+  border-radius: 14px;
+}
+#input-tag{
+  display: none;
+}
