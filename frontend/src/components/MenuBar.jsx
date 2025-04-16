@@ -12,7 +12,7 @@ const MenuBar = () => {
 
   return isMenuOpen ? (
     <>
-      <div className="absolute z-30 bg-black h-[100vh] w-[40vw] -top-1 -right-1 border-[0.08rem] border-l-[#1E1E1E]">
+      <div className="absolute z-30 bg-black h-[100vh] w-[40vw] -top-1 -right-1 border-[0.08rem] border-l-[#1E1E1E] flex justify-between flex-col">
         <nav className="relative mt-7 ml-5 flex flex-row justify-between">
           <div className="flex flex-row items-center gap-x-2">
             <img src={dot} height={7} width={7}></img>
@@ -31,7 +31,7 @@ const MenuBar = () => {
           </button>
         </nav>
         <div className="relative h-[92vh] w-[39.5vw] flex justify-center items-center">
-          <div className="border-[0.08rem] border-[#1E1E1E] rounded-md flex flex-col justify-center h-[70%] w-[90%] gap-y-10 px-5">
+          <div className="border-[0.08rem] border-[#1E1E1E] rounded-md flex flex-col justify-end h-[70%] w-[90%] gap-y-10 px-5">
             {menuItems.map((item, key) => (
               <ul
                 className={
@@ -67,8 +67,10 @@ const MenuBar = () => {
             ))}
           </div>
         </div>
-        <button className="relative">
-          <img src={github} height={10} width={10}></img>
+        <button className="relative bottom-10 mx-auto  border-[0.08rem] border-[#1E1E1E] h-[4rem] w-[10rem] flex flex-row justify-center items-center space-x-3 rounded-md block">
+          {/*TODO: Enter github link*/}
+          <img src={github} alt="Github" height={24} width={24}></img>
+          <p className="text-white text-sm inter-400">Star This Project</p>
         </button>
       </div>
     </>
