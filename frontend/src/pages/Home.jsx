@@ -6,6 +6,8 @@ import hack4bengal from "../assets/hack4b.png";
 import dot from "../assets/dot3.svg";
 import copy from "../assets/copy.svg";
 import arrow from "../assets/arrow2.svg";
+import github from "../assets/github.svg";
+import { InfiniteCarousel } from "../components/Carousel";
 
 function Home() {
   const { isMenuOpen, changeMenu } = useGlobalContext();
@@ -25,8 +27,14 @@ function Home() {
           hack4bengal
         </p>
       </div>
-      <div className="fixed -right-0 top-[55%] w-[40rem] justify-between flex flex-row">
+      <div className="fixed z-20 left-5 top-[70%] bg-white flex flex-col">
+        <button className="bg-[#1E1E1E] p-1">
+          <img src={github} height={10} width={20}></img>
+        </button>
+      </div>
+      <div className="fixed -right-0 top-[35%] w-[40rem] justify-between flex flex-row">
         <div>
+          <InfiniteCarousel />
           <p className="text-2xl inter-400 flex flex-row">
             <img src={dot}></img>
             <span className="text-white">Truth,</span>
