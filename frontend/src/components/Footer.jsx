@@ -1,14 +1,17 @@
 import { useGlobalContext } from "../hooks/GlobalContext";
 import dot from "../assets/dot.svg";
+import { useLocation } from "react-router";
 
 const Footer = () => {
   const { activeTab, changeTab } = useGlobalContext();
+  const location = useLocation();
+  var path = location.pathname.slice(1);
 
   const menuItems = ["HOME", "MODELS", "PLAYGROUND", "ABOUT", "CONTACT"];
 
   let tab, index;
   for (let i = 0; i < menuItems.length; i++) {
-    if (menuItems[i] == activeTab) {
+    if (menuItems[i] == path.toUpperCase()) {
       tab = activeTab;
       index = i;
     }
@@ -26,7 +29,7 @@ const Footer = () => {
         </div>
         <div className="w-[25vw] mt-3 flex flex-row space-x-2">
           <img src={dot} height={7} width={7}></img>
-          <p>{tab}</p>
+          <p>({menuItems[index]})</p>
         </div>
         <p className="mt-3">Scroll Down....</p>
       </div>
