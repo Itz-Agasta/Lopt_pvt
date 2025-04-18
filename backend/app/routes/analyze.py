@@ -7,7 +7,7 @@ from models.image_model import virtus
 
 router = APIRouter()
 
-def handle_image(file: UploadFile):
+async def handle_image(file: UploadFile):
     """Process and analyze the uploaded image file."""
     try:
         image = Image.open(file.file).convert("RGB")
