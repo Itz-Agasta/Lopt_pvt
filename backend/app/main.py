@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 # from core.config import get_settings # Experimental
-from routes.analyze import router as analyzer_router
+from routes.playground import router as playground_router
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
+
 app = FastAPI()
 
 allowed_origin = os.getenv("FRONTEND_ORIGIN_URL")
@@ -31,4 +32,4 @@ def root():
             "allowed_origins": origins
       }
 
-app.include_router(analyzer_router, prefix="/analyze", tags=["analyze"])
+app.include_router(playground_router, prefix="/playground", tags=["playground"])
