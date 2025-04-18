@@ -4,6 +4,7 @@ import dot from "../assets/dot.svg";
 import github from "../assets/github.svg";
 import { useGlobalContext } from "../hooks/GlobalContext";
 import dot2 from "../assets/dot2.svg";
+import Hover from "./Hover";
 
 const MenuBar = () => {
   const { activeTab, changeTab, isMenuOpen, changeMenu } = useGlobalContext();
@@ -26,7 +27,7 @@ const MenuBar = () => {
             onClick={changeMenu}
           >
             <img src={cross} className="mr-2" height={10} width={10}></img>
-            CLOSE
+            <Hover>CLOSE</Hover>
           </button>
         </nav>
         <div className="relative h-[92vh] w-[39.5vw] flex justify-center items-center">
@@ -51,7 +52,9 @@ const MenuBar = () => {
                     }
                     onClick={() => changeTab(item)}
                   >
-                    <NavLink to={`/${item.toLowerCase()}`}>{item}</NavLink>
+                    <NavLink to={`/${item.toLowerCase()}`}>
+                      <Hover>{item}</Hover>
+                    </NavLink>
                   </button>
                   <img
                     src={dot2}
