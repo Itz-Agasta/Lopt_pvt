@@ -9,6 +9,17 @@ import Hover from "./Hover";
 import { NavLink } from "react-router";
 
 const NavBar = () => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(!scroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const { activeTab, changeMenu } = useGlobalContext();
   const location = useLocation();
   var path = location.pathname.slice(1);
@@ -20,15 +31,27 @@ const NavBar = () => {
         <div className="relative flex flex-row justify-between w-[100vw]">
           <div className="max-w-[30vw] ml-4 not-md:mt-3">
             <Reveal1>
-              <h1
-                className={
-                  path === "home"
-                    ? "md:text-9xl text-5xl font-[mubold] text-white"
-                    : "md:text-5xl text-5xl font-[mubold] text-white mt-3"
-                }
-              >
-                <NavLink to="/home">LOPT</NavLink>
-              </h1>
+              {scroll ? (
+                <h1
+                  className={
+                    path === "home"
+                      ? "md:text-5xl text-3xl font-[mubold] text-white mt-3 transition-all duration-300"
+                      : "md:text-5xl text-5xl font-[mubold] text-white mt-3 transition-all duration-300"
+                  }
+                >
+                  <NavLink to="/home">LOPT</NavLink>
+                </h1>
+              ) : (
+                <h1
+                  className={
+                    path === "home"
+                      ? "md:text-9xl text-5xl font-[mubold] text-white transition-all duration-300"
+                      : "md:text-5xl text-5xl font-[mubold] text-white mt-3 transition-all duration-300"
+                  }
+                >
+                  <NavLink to="/home">LOPT</NavLink>
+                </h1>
+              )}
             </Reveal1>
           </div>
           <Reveal2>
