@@ -1,16 +1,16 @@
 import { useGlobalContext } from "../hooks/GlobalContext";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
-import Sticker from "../components/h4b";
+import NavBar from "../components/utility/NavBar";
+import Footer from "../components/utility/Footer";
+import Sticker from "../components/utility/h4b";
 import background from "../assets/bg.png";
 import dot from "../assets/dot3.svg";
 import copy from "../assets/copy.svg";
 import arrow from "../assets/arrow2.svg";
 import arrow2 from "../assets/arrow3.svg";
 import github from "../assets/github.svg";
-import { InfiniteCarousel } from "../components/Carousel";
+import { InfiniteCarousel } from "../components/utility/Carousel";
 import { NavLink, useLocation } from "react-router";
-import CombinedReveal from "../components/CombinedReveal";
+import CombinedReveal from "../components/utility/CombinedReveal";
 import { motion } from "framer-motion";
 
 function Home() {

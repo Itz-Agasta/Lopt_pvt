@@ -11,7 +11,6 @@ export default async function analyzeFile(file){
             "Content-Type": "multipart/form-data",
         },
     });
-    const label = response.data.label;
-    const confidence = response.data.confidence;
-    return {label, confidence};
+    
+    return response.data;
 }

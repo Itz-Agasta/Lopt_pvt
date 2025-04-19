@@ -1,12 +1,12 @@
-import logo from "../assets/veritas.png";
-import menu from "../assets/list.svg";
+import menu from "../../assets/list.svg";
 import { useEffect, useState } from "react";
 import MenuBar from "./MenuBar";
 import Reveal1 from "./Reveal1";
 import Reveal2 from "./Reveal2";
-import { useGlobalContext } from "../hooks/GlobalContext";
+import { useGlobalContext } from "../../hooks/GlobalContext";
 import { useLocation } from "react-router";
 import Hover from "./Hover";
+import { NavLink } from "react-router";
 
 const NavBar = () => {
   const [time, setTime] = useState(new Date());
@@ -35,7 +35,7 @@ const NavBar = () => {
                     : "md:text-5xl text-5xl font-[mubold] text-white mt-3"
                 }
               >
-                LOPT
+                <NavLink to="/home">LOPT</NavLink>
               </h1>
             </Reveal1>
           </div>
