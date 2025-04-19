@@ -11,6 +11,7 @@ const MenuBar = () => {
   const location = useLocation();
   var path = location.pathname;
   path = path.slice(1);
+  if (path.length == 0) path = "home";
 
   const menuItems = ["HOME", "MODELS", "PLAYGROUND", "ABOUT", "CONTACT"];
 
@@ -76,9 +77,10 @@ const MenuBar = () => {
           </div>
         </div>
         <button className="relative bottom-10 mx-auto  border-[0.08rem] border-[#1E1E1E] h-[4rem] w-[10rem] flex flex-row justify-center items-center space-x-3 rounded-md block">
-          {/*TODO: Enter github link*/}
           <img src={github} alt="Github" height={24} width={24}></img>
-          <p className="text-white text-sm inter-400">Star This Project</p>
+          <a href="https://github.com/Itz-Agasta/Lopt.git">
+            <p className="text-white text-sm inter-400">Star This Project</p>
+          </a>
         </button>
       </div>
       <div className="absolute z-40 bg-black h-screen w-screen top-0 md:hidden">
