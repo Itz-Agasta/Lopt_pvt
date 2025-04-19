@@ -4,8 +4,8 @@ import NavBar from "../components/utility/NavBar";
 import Footer from "../components/utility/Footer";
 import gif from "../assets/waiting.gif";
 import Sticker from "../components/utility/h4b";
-import analyzeFile from "../lib/api";
-import { samples, links } from "../components/static/samples";
+import { analyzeFile, try_sample } from "../lib/api";
+import samples from "../components/static/samples";
 import open from "../assets/redirect.svg";
 import background from "../assets/bg.png";
 import Header from "../components/utility/Header";
@@ -16,6 +16,9 @@ const Playground = () => {
   const [fileType, setFileType] = useState("image");
   const [result, setResult] = useState(null);
   const hiddenFileInput = useRef(null);
+  const [position, setPosition] = useState(null);
+  const [type, setType] = useState(null);
+  const [fileName, setFileName] = useState(null);
 
   const handleClick = (e) => {
     hiddenFileInput.current.click();
@@ -24,6 +27,7 @@ const Playground = () => {
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     setUploadedFile(file);
+    setFileName(file.name);
     if (file.type.startsWith("image/")) setFileType("image");
     else if (file.type.startsWith("video/")) setFileType("video");
     setResult(null);
@@ -31,6 +35,18 @@ const Playground = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (position && type) {
+      try {
+        console.log(position);
+        console.log(type);
+        const response = await try_sample(position, type);
+        setResult(response);
+        console.log(result);
+      } catch (err) {
+        console.log("error!");
+      }
+      return;
+    }
     if (!uploadedFile) return;
     try {
       const response = await analyzeFile(uploadedFile);
@@ -41,12 +57,22 @@ const Playground = () => {
     }
   };
 
-  const handleImage = async (idx) => {
-    const response = await fetch(links[idx]);
-    const blob = await response.blob();
-    const file = new File([blob], "sample.jpg", { type: blob.type });
-    setUploadedFile(file);
-    console.log(uploadedFile);
+  const handleImage = async (index) => {
+    setFileName(samples[index].name);
+    const name = samples[index].name.split("_");
+    console.log(name);
+    let idx = parseInt(name[2]) - 1;
+    console.log(idx);
+    setPosition(idx);
+    console.log(position);
+    if (name.includes("fake") && name.includes("video")) setType("video fake");
+    else if (name.includes("real") && name.includes("image"))
+      setType("image real");
+    else if (name.includes("fake") && name.includes("image"))
+      setType("image fake");
+    else if (name.includes("real") && name.includes("video"))
+      setType("video real");
+    console.log(fileType);
   };
 
   return (
@@ -94,15 +120,17 @@ const Playground = () => {
                       <div className="w-[10vw] border-[0.08rem] rounded-xl border-white p-1 flex flex-row justify-center gap-2">
                         <button
                           onClick={() =>
-                            window.open(item, "_blank", "noopener, noreferrer")
+                            window.open(
+                              item.source,
+                              "_blank",
+                              "noopener, noreferrer"
+                            )
                           }
                         >
                           <img src={open} height={20} width={20}></img>
                         </button>
                         <button onClick={() => handleImage(idx)}>
-                          {idx > 2
-                            ? `fake_image_${idx + 1}`
-                            : `real_image_${idx + 1}`}
+                          {item.name}
                         </button>
                       </div>
                     </ul>
@@ -114,7 +142,7 @@ const Playground = () => {
                   onClick={handleClick}
                   className="text-md text-white inter-400 border-[0.08rem] border-white rounded-2xl px-4 py-2 h-16"
                 >
-                  Upload File
+                  {!fileName ? <p>Upload File</p> : <p>{fileName}</p>}
                 </button>
                 <input
                   type="file"
@@ -213,7 +241,7 @@ const Playground = () => {
                 <button
                   className="text-md text-white inter-400 bg-[#f03b05] px-4 py-2 rounded-2xl"
                   onClick={handleSubmit}
-                  disabled={uploadedFile ? false : true}
+                  disabled={fileName ? false : true}
                 >
                   Check for DeepFake!
                 </button>

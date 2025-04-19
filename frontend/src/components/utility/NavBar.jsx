@@ -14,13 +14,6 @@ const NavBar = () => {
   var path = location.pathname.slice(1);
   if (path.length <= 0) path = "home";
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
   return (
     <>
       <div className="fixed z-100">

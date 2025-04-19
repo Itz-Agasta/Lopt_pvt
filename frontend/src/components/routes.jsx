@@ -13,6 +13,7 @@ const Home = lazy(() => wait(1000).then(() => import("../pages/Home")));
 const Playground = lazy(() =>
   wait(1000).then(() => import("../pages/Playground"))
 );
+const Models = lazy(() => wait(1000).then(() => import("../pages/Models")));
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/playground",
     element: <Playground />,
+  },
+  {
+    path: "/models",
+    element: <Models />,
   },
 ]);
 
