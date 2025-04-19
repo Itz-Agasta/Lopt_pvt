@@ -50,3 +50,7 @@
 body, * {
   cursor: none;
 }
+
+.orange{
+  color: #f03b05;
+}

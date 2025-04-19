@@ -13,6 +13,7 @@ const NavBar = () => {
   const { activeTab, changeMenu } = useGlobalContext();
   const location = useLocation();
   var path = location.pathname.slice(1);
+  if (path.length <= 0) path = "home";
 
   useEffect(() => {
     const timer = setInterval(() => {
