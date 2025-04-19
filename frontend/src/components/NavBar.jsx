@@ -31,8 +31,8 @@ const NavBar = () => {
               <h1
                 className={
                   path === "home"
-                    ? "md:text-9xl text-5xl font-[nmBold] text-white"
-                    : "md:text-5xl text-5xl font-[nmBold] text-white mt-3"
+                    ? "md:text-9xl text-5xl font-[mubold] text-white"
+                    : "md:text-5xl text-5xl font-[mubold] text-white mt-3"
                 }
               >
                 LOPT

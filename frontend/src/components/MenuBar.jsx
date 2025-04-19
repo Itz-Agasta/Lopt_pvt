@@ -48,8 +48,8 @@ const MenuBar = () => {
                   <button
                     className={
                       key == 4
-                        ? "text-5xl text-white inter-900 -mt-2"
-                        : "text-5xl text-white inter-900"
+                        ? "text-5xl text-white font-[mubold] -mt-2"
+                        : "text-5xl text-white font-[mubold]"
                     }
                     onClick={() => changeTab(item)}
                   >
