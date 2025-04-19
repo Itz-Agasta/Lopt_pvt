@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Special+Gothic+Expanded+One&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'mreg';
+  src: url("./assets/fonts/MonumentExtended-Regular.otf");
+}
+
+@font-face {
+  font-family: 'mubold';
+  src: url("./assets/fonts/MonumentExtended-Ultrabold.otf");
+}
+
+body, * {
+  cursor: none;
+}
+
+.goth {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-900 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.inter-400{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-600{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.gray{
+  color: #a1a2a2;
+}
+
+
+.orange{
+  color: #f03b05;
+}
